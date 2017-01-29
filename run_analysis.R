@@ -1,4 +1,4 @@
-# read activity
+# download activity files
 if(!file.exists("./data")){dir.create("./data")}
 fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 download.file(fileUrl,destfile="./data/Dataset.zip")
@@ -30,6 +30,7 @@ test_set <- cbind(y_test,subject_test,X_test)
 train_test_set <- rbind(train_set,test_set)
 # remove duplicated columns
 train_test_set <- train_test_set[,!duplicated(colnames(train_test_set))]
+
 library(dplyr)
 dataSet= tbl_df(train_test_set)
 # Enrich Activity Name
