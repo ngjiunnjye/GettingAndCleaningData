@@ -6,21 +6,21 @@ download.file(fileUrl,destfile="./data/Dataset.zip")
 # Unzip dataSet to /data directory
 unzip(zipfile="./data/Dataset.zip",exdir="./data")
 # Load Metadata
-activity <- read.table("activity_labels.txt",sep = " ", col.names = c("activity_id", "activity"))
-features <- read.table("features.txt",sep = " ", col.names = c("feature_id", "feature"))
+activity <- read.table("./data/UCI HAR Dataset/activity_labels.txt",sep = " ", col.names = c("activity_id", "activity"))
+features <- read.table("./data/UCI HAR Dataset/features.txt",sep = " ", col.names = c("feature_id", "feature"))
 
 # Load train data
-y_train <- read.table("train/y_train.txt",sep = " ", col.names = c("activity_id"))
-subject_train <- read.table("train/subject_train.txt",sep = " ", col.names = c("subject_id"))
-X_train <- read.table("train/X_train.txt")
+y_train <- read.table("./data/UCI HAR Dataset/train/y_train.txt",sep = " ", col.names = c("activity_id"))
+subject_train <- read.table("./data/UCI HAR Dataset/train/subject_train.txt",sep = " ", col.names = c("subject_id"))
+X_train <- read.table("./data/UCI HAR Dataset/train/X_train.txt")
 colnames (X_train) <- features$feature
 # Merge Train Set
 train_set <- cbind(y_train,subject_train,X_train)
 
 # Load test data
-y_test <- read.table("test/y_test.txt",sep = " ", col.names = c("activity_id"))
-subject_test <- read.table("test/subject_test.txt",sep = " ", col.names = c("subject_id"))
-X_test <- read.table("test/X_test.txt")
+y_test <- read.table("./data/UCI HAR Dataset/test/y_test.txt",sep = " ", col.names = c("activity_id"))
+subject_test <- read.table("./data/UCI HAR Dataset/test/subject_test.txt",sep = " ", col.names = c("subject_id"))
+X_test <- read.table("./data/UCI HAR Dataset/test/X_test.txt")
 colnames (X_test) <- features$feature
 
 # Merge Test set
